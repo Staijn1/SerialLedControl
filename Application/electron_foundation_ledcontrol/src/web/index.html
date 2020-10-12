@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1c9144b004.js" crossorigin="anonymous"></script>
+    <!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/app.css">
+
+    <script>
+        var $ = jQuery = require("jquery")
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+</head>
+<body>
+<div id="menu-bar"></div>
+
+<div class="top-bar" id="navigation"></div>
+
+<div class="hero" id="hero"></div>
+
+<div class="row">
+    <div class="column" id="errors">
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <h1>Modes</h1>
+            <form>
+                <div class="row button-group round toggle" id="mode">
+                    <i class='fas fa-spinner fa-pulse fa-5x text-secondary'></i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<button id="updateBtn" value="1" class="button">Button</button>
+<label for="notifyVal">Commando</label><input type="text" id="notifyVal">
+
+<script src="renderer_index.js"></script>
+<script src="../includes/iro.js"></script>
+<!--<script src="../node_modules/what-input/dist/what-input.js"></script>-->
+<script src="../../node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/app.js"></script>
+<script src="../includes/custommenu.js"></script>
+
+</body>
+</html>

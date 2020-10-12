@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src='js/spotify.js'></script>
+
+    <script src="https://kit.fontawesome.com/1c9144b004.js" crossorigin="anonymous"></script>
+
+    <script>
+        var $ = jQuery = require("jquery")
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    <!-- Import p5 and addons -->
+    <script src='js/p5/p5.min.js'></script>
+    <script src='js/p5/addons/p5.dom.min.js'></script>
+    <script src='js/p5/addons/p5.sound.min.js'></script>
+</head>
+<body>
+<div id="menu-bar"></div>
+
+<div class="top-bar" id="navigation"></div>
+
+<div class="hero" id="hero"></div>
+
+<div class="row">
+    <div class="column" id="errors">
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <h1>Visualizer</h1>
+        <div id="sketch-holder"></div>
+        <div id="input-holder" class="uk-margin-left">
+            <a href="#" id="authenticate" class="uk-button uk-button-secondary uk-button-large uk-margin-bottom"><span
+                    uk-icon="forward"></span> Authorise Spotify</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const { BrowserWindow } = require('electron').remote
+    let urlContainingAccessToken = "";
+
+    const options = {
+        client_id: "d9b8ea58cd5a48fb94ad8fe63d88ce76",
+        redirect_uri: "http://127.0.0.1/",
+        scope: 'user-read-currently-playing'
+    }
+
+    var authWindow = new BrowserWindow({
+        width: 450,
+        height: 300,
+        show: false,
+        modal: true,
+        webPreferences: {nodeIntegration: false, webSecurity: false, allowRunningInsecureContent: true}
+    });
+
+    var spotifyAuthURL = `https://accounts.spotify.com/authorize?client_id=${options.client_id}&response_type=token&scope=${options.scope}&redirect_uri=${options.redirect_uri}`;
+    authWindow.loadURL(spotifyAuthURL);
+    authWindow.show();
+    authWindow.webContents.on('will-redirect', (event, url) => {
+        const accessTokenIndex = url.indexOf('#')
+        url = url.substring(accessTokenIndex);
+        urlContainingAccessToken = url;
+        authWindow.close()
+        authWindow.destroy()
+    })
+
+</script>
+
+<script src="renderer_visualizer.js"></script>
+<script src="../includes/iro.js"></script>
+<!--<script src="../node_modules/what-input/dist/what-input.js"></script>-->
+<script src="../../node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/app.js"></script>
+<script src='js/sketch.js'></script>
+<script src="../includes/custommenu.js"></script>
+</body>
+</html>

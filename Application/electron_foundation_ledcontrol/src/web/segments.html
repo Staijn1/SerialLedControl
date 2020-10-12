@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css">
+    <!--    <link rel="stylesheet" href="https://unpkg.com/material-components-web@3.2.0/dist/material-components-web.min.css">-->
+    <script src="https://kit.fontawesome.com/1c9144b004.js" crossorigin="anonymous"></script>
+    <style>
+        .noUi-tooltip { /* only show slider tooltips when the slider is being moved */
+            display: none;
+        }
+
+        .noUi-active .noUi-tooltip {
+            display: block;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script>
+        var $ = jQuery = require("jquery")
+    </script>
+
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body class="mdc-typography">
+<div id="menu-bar"></div>
+
+<div class="top-bar" id="navigation"></div>
+
+<div class="grid-x">
+    <div class="column" id="errors">
+    </div>
+</div>
+
+<div class="hero" id="hero"></div>
+
+
+<div class="grid-x align-center margin-top-3">
+    <div class="cell small-1">
+        <button class="button clear" onclick="onSave()">
+            <i class="fas fa-save fa-lg"></i>
+        </button>
+    </div>
+    <div class="columns small-1">
+        <button class="button clear" onclick="onPause()">
+            <i class="fas fa-pause fa-lg"></i>
+        </button>
+    </div>
+    <div class="cell small-1">
+        <button class="button clear" onclick="onResume()">
+            <i class="fas fa-play fa-lg"></i>
+        </button>
+    </div>
+    <div class="cell small-1">
+        <button class="button clear" onclick="onStart()">
+            <i class="fas fa-power-off fa-lg"></i>
+        </button>
+    </div>
+    <div class="cell small-1">
+        <button class="button clear" onclick="onStop()">
+            <i class="fas fa-stop fa-lg"></i>
+        </button>
+    </div>
+    <!--    <button class="mdc-button mdc-button&#45;&#45;raised" onclick="onLoad()" data-mdc-auto-init="MDCRipple">-->
+    <!--        <i class="material-icons mdc-button__icon" aria-hidden="true">cloud_download</i>-->
+    <!--        <span class="mdc-button__label">Load</span>-->
+    <!--    </button>-->
+</div>
+
+<div class="grid-container">
+    <div class="grid-x grid-padding-x"> <!-- Aligned to the left -->
+        <div class="cell small-6">
+            <div>
+                <div class="grid-x align-justify align-middle">
+                    <div class="cell small-11">
+                        <h3 style="display: inline-block">Segments</h3>
+                    </div>
+                    <div class="cell small-1">
+                        <button class="hollow" onclick="onAddSegment(event)"><i class="fas fa-plus-square text-secondary fa-lg"></i></button>
+                    </div>
+                </div>
+
+
+                <ul id="segmentList" class="no-bullet bordered"></ul>
+            </div>
+        </div>
+        <div class="cell small-5 small-offset-1">
+            <div>
+                <h3 class="mdc-typography--subtitle1">Segment Range</h3>
+                <div id="rangeSlider"></div>
+            </div>
+            <div class="margin-top-2">
+                <h3 class="mdc-typography--subtitle1">Segment Speed</h3>
+                <div id="speedSlider"></div>
+            </div>
+            <div class="margin-top-2">
+                <label>Segment Mode
+                    <select id="modes" class="" onchange="updateSegment()">
+                        <option value="0">Static</option>
+                    </select>
+                </label>
+                <label>Fade Rate
+                    <select id="fade" onchange="updateSegment()">
+                        <option value="0" selected>Default</option>
+                        <option value="1">XFAST</option>
+                        <option value="2">FAST</option>
+                        <option value="3">MEDIUM</option>
+                        <option value="4">SLOW</option>
+                        <option value="5">XSLOW</option>
+                        <option value="6">XXSLOW</option>
+                        <option value="7">GLACIAL</option>
+                    </select>
+                </label>
+
+                <label>Size
+                    <select id="size" class="mdc-select__native-control" onchange="updateSegment()">
+                        <option value="0" selected>SMALL</option>
+                        <option value="1">MEDIUM</option>
+                        <option value="2">LARGE</option>
+                        <option value="3">XLARGE</option>
+                    </select>
+                </label>
+
+                <div>
+                    <h3 class="mdc-typography--subtitle1" style="display: inline-block">Gamma</h3>
+                    <div class="switch">
+                        <input class="switch-input" id="gamma" type="checkbox" name="gammaSwitch">
+                        <label class="switch-paddle" for="gamma">
+                            <span class="show-for-sr">Gamma</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mdc-typography--subtitle1" style="display: inline-block">Reverse</h3>
+                    <div class="switch">
+                        <input class="switch-input" id="reverse" type="checkbox" name="reverseSwitch">
+                        <label class="switch-paddle" for="reverse">
+                            <span class="show-for-sr">Reverse</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
+
+
+<script src="renderer_segments.js"></script>
+<script src="../includes/iro.js"></script>
+<script src="../includes/custommenu.js"></script>
+</body>
+</html>

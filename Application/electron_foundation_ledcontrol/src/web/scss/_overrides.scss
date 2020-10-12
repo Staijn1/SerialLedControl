@@ -1,0 +1,249 @@
+$bilboInc-font-path: "fonts/BilboINC/";
+$height-menu: 1.5em;
+$bilboInc: BilboInc, monospace;
+
+@import 'settings';
+
+@font-face {
+  font-family: 'BilboINC';
+  src: url($bilboInc-font-path + 'BilboINC-Regular_web.eot'); /* IE9 Compat Modes */
+  src: url($bilboInc-font-path + 'BilboINC-Regular_web.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url($bilboInc-font-path + 'BilboINC-Regular_web.woff2') format('woff2'), /* Super Modern Browsers */
+  url($bilboInc-font-path + 'BilboINC-Regular_web.woff') format('woff'), /* Pretty Modern Browsers */
+  url($bilboInc-font-path + 'BilboINC-Regular_web.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+.row {
+  max-width: initial;
+  margin: initial;
+}
+
+#logo {
+  color: $primary;
+  font-family: $bilboInc;
+}
+
+.accent-font {
+  font-family: $bilboInc;
+}
+
+.hero {
+  background: linear-gradient(230deg, $primary, $secondary, #a24bcf, #4bc5cf, $success, $warning);
+  background-size: 600% 600%;
+
+  -webkit-animation: MoveBG 60s ease infinite;
+  -moz-animation: MoveBG 60s ease infinite;
+  animation: MoveBG 60s ease infinite;
+}
+
+@-webkit-keyframes MoveBG {
+  0% {
+    background-position: 0% 84%
+  }
+  50% {
+    background-position: 100% 17%
+  }
+  100% {
+    background-position: 0% 84%
+  }
+}
+
+@-moz-keyframes MoveBG {
+  0% {
+    background-position: 0% 84%
+  }
+  50% {
+    background-position: 100% 17%
+  }
+  100% {
+    background-position: 0% 84%
+  }
+}
+
+@keyframes MoveBG {
+  0% {
+    background-position: 0% 84%
+  }
+  50% {
+    background-position: 100% 17%
+  }
+  100% {
+    background-position: 0% 84%
+  }
+}
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 50vh;
+
+  text-shadow: 1px 1px 2px $black;
+}
+
+.hero-body h1 {
+  color: $white;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-primary-hover {
+  transition: color ease 0.25s;
+}
+
+.text-primary-hover:hover {
+  color: scale-color($primary, $lightness: -25%);
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-tertiary {
+  color: $tertiary !important;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-black {
+  color: $black;
+}
+
+.top-bar .top-bar-left, .top-bar .top-bar-right {
+  margin-top: $height-menu;
+}
+
+#menu-bar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: $height-menu;
+  background: $background;
+  -webkit-app-region: drag;
+  z-index: 1;
+}
+
+#menu-bar > div {
+  height: 100%;
+}
+
+.menubar-btn {
+  height: 100%;
+  -webkit-app-region: no-drag;
+  padding: 0 15px;
+
+  i {
+    color: $white;
+  }
+}
+
+.menubar-btn:hover {
+  background: scale-color($background, $lightness: +14%);
+}
+
+#close-btn:hover {
+  background: $primary;
+}
+
+
+#picker {
+  margin-top: 2em;
+}
+
+$menu-hover-lines-transition: all 0.35s ease;
+$menu-hover-lines-border-width: 3px;
+
+.menu-hover-lines {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: $menu-hover-lines-transition;
+
+  li a {
+    padding: 0.75rem 0;
+    color: $primary;
+    position: relative;
+    margin-left: 1rem;
+  }
+
+  li:first-child a {
+    margin-left: 0;
+  }
+
+  li.active > a {
+    background-color: transparent;
+  }
+
+  a:before,
+  a::after {
+    height: $menu-hover-lines-border-width;
+    position: absolute;
+    content: '';
+    transition: $menu-hover-lines-transition;
+    background-color: $primary-color;
+    width: 0;
+  }
+
+  a::before {
+    top: 0;
+    left: 0;
+  }
+
+  a::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  a:hover,
+  li.active > a {
+    color: scale-color($primary, $lightness:  -25% );
+    transition: $menu-hover-lines-transition;
+  }
+
+  a:hover::before,
+  .active a::before,
+  a:hover::after,
+  .active a::after {
+    width: 100%;
+  }
+}
+
+.no-text-transform{
+  text-transform: initial;
+}
+
+#body{
+  text-align: center
+}
+$selected-color: $secondary;
+
+.button-group input{
+  display: none;
+}
+
+.button-group input:checked + label,
+.button-group input:checked + label:active {
+  background-color: $selected-color;
+}
+
+#mode .columns .button{
+  width: 100%;
+  margin-top: 1em;
+}
+
+.segment-item{
+  transition: background-color 0.5s ease !important;
+}
+
+.segment-item-selected{
+  background-color: $secondary;
+}

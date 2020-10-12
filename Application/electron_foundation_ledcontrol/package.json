@@ -1,0 +1,33 @@
+{
+  "name": "ledstrip_serial_control",
+  "version": "1.0.0",
+  "description": "Control a WS2812b ledstrip with an Arduino Uno over Serial",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "scss": "node-sass --watch src/web/scss -o src/web/css"
+  },
+  "dependencies": {
+    "@jaames/iro": "^5.2.3",
+    "electron-build-env": "^0.2.0",
+    "electron-builder": "^22.8.1",
+    "foundation-sites": "^6.6.0",
+    "jquery": "^3.5.1",
+    "serialport": "^7.1.5",
+    "what-input": "^5.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "browser-sync": "^2.26.12",
+    "electron": "^5.0.0",
+    "electron-packager": "^15.1.0",
+    "electron-rebuild": "^2.2.0",
+    "gulp": "^4.0.2",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.1",
+    "motion-ui": "^2.0.3",
+    "node-sass": "^4.14.1"
+  },
+  "private": true
+}
