@@ -7,6 +7,7 @@ Control a ledstrip using web. Made with electron.
 2. WS2812B
 3. Software to upload to the arduino ([Arduino IDE used](https://www.arduino.cc/en/Main/Software))
 4. Node.js
+
 ##Getting started
 ### Uploading the sketch
 Open the arduino IDE.
